@@ -2,7 +2,7 @@
 
 面向 HarmonyOS ArkUI V2 的声明式表单组件库，与 `@hmkit/validator` 共用同一套 Schema 和校验状态机。
 
-当前仓库处于 0.1.0 MVP 开发阶段，尚未发布到 OHPM。已经可用的能力包括：
+当前仓库处于 0.1.0 首发审核阶段。已经可用的能力包括：
 
 - `FormController`：values、errors、change、blur、submit、reset、dispose。
 - `HmFormView`：text/number/textarea/select/radio/checkbox/switch/date 动态字段、稳定字段 key、首错聚焦、成功/失败提交事件与可替换提交区。
