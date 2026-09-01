@@ -1,0 +1,12 @@
+{
+  "name": "entry",
+  "version": "0.1.0",
+  "description": "Full-feature @hmkit/form showcase",
+  "main": "",
+  "author": "hmkit",
+  "license": "MIT",
+  "dependencies": {
+    "@hmkit/form": "file:../../form/build/default/outputs/default/form.har",
+    "@hmkit/validator": "^1.0.0"
+  }
+}

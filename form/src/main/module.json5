@@ -1,0 +1,7 @@
+{
+  "module": {
+    "name": "form",
+    "type": "har",
+    "deviceTypes": ["phone", "tablet"]
+  }
+}

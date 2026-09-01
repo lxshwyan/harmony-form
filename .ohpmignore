@@ -1,0 +1,10 @@
+**/build/
+**/oh_modules/
+entry/
+external-consumer/
+.planning/
+*.p12
+*.cer
+*.pem
+*.key
+local.properties

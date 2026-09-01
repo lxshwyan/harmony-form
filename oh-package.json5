@@ -1,0 +1,10 @@
+{
+  "modelVersion": "5.0.0",
+  "name": "hmkit-form-demo",
+  "version": "0.1.0",
+  "description": "Phase 0 consumer app for @hmkit/form",
+  "dependencies": {},
+  "devDependencies": {
+    "@ohos/hypium": "1.0.25"
+  }
+}

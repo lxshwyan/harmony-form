@@ -1,0 +1,7 @@
+{
+  "modelVersion": "5.0.0",
+  "name": "hmkit-form-showcase",
+  "version": "0.1.0",
+  "description": "Full-feature API 12 showcase for @hmkit/form",
+  "dependencies": {}
+}

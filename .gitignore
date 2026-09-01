@@ -1,0 +1,30 @@
+# DevEco / OpenHarmony build artifacts
+/build/
+**/build/
+/.hvigor/
+**/.hvigor/
+**/.test/
+**/BuildProfile.ets
+/.cxx/
+/oh_modules/
+**/oh_modules/
+/.preview/
+**/.preview/
+
+# IDE and local configuration
+/.idea/
+*.iml
+local.properties
+
+# Credentials and OS files
+*.p12
+*.pem
+*_private*
+.DS_Store
+**/.DS_Store
+
+# Local agent planning state
+/task_plan.md
+/findings.md
+/progress.md
+/.planning/

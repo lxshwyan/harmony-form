@@ -1,0 +1,7 @@
+{
+  "string": [
+    { "name": "module_desc", "value": "@hmkit/form full-feature showcase" },
+    { "name": "EntryAbility_desc", "value": "Form capabilities and integration patterns" },
+    { "name": "EntryAbility_label", "value": "Hmkit Form Showcase" }
+  ]
+}

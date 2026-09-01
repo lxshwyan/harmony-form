@@ -1,0 +1,25 @@
+{
+  "name": "@hmkit/form",
+  "version": "0.1.0",
+  "description": "鸿蒙 ArkUI V2 声明式表单组件库，与 @hmkit/validator 深度集成",
+  "main": "Index.ets",
+  "author": {
+    "name": "hmkit",
+    "url": "https://github.com/lxshwyan"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/lxshwyan/harmony-form",
+  "repository": "https://github.com/lxshwyan/harmony-form.git",
+  "keywords": [
+    "form",
+    "dynamic-form",
+    "arkui",
+    "arkts",
+    "harmonyos",
+    "表单",
+    "动态表单"
+  ],
+  "dependencies": {
+    "@hmkit/validator": "^1.0.0"
+  }
+}

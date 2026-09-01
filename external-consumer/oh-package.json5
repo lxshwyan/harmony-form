@@ -1,0 +1,7 @@
+{
+  "modelVersion": "5.0.0",
+  "name": "hmkit-form-external-consumer",
+  "version": "0.1.0",
+  "description": "Independent API 12 smoke consumer for the built @hmkit/form HAR",
+  "dependencies": {}
+}

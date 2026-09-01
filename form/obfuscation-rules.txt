@@ -1,0 +1,2 @@
+# Phase 0 keeps public property names stable while the API is validated.
+-keep-property-name

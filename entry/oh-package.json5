@@ -1,0 +1,12 @@
+{
+  "name": "entry",
+  "version": "0.1.0",
+  "description": "ArkUI V2 consumer for @hmkit/form",
+  "main": "",
+  "author": "hmkit",
+  "license": "MIT",
+  "dependencies": {
+    "@hmkit/form": "file:../form",
+    "@hmkit/validator": "^1.0.0"
+  }
+}

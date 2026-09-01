@@ -1,0 +1,7 @@
+{
+  "string": [
+    { "name": "module_desc", "value": "@hmkit/form Phase 0 demo" },
+    { "name": "EntryAbility_desc", "value": "@hmkit/form consumer ability" },
+    { "name": "EntryAbility_label", "value": "HmkitFormDemo" }
+  ]
+}
