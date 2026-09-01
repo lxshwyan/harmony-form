@@ -47,4 +47,4 @@ source scripts/env.sh
   --disallow_nested_package --ensure_dependency_include
 ```
 
-2026-09-01 已获得用户授权并首次提交 `@hmkit/form@0.1.0`，HAR SHA-256 为 `01ca5db02236488ef18dc4a9e3efbed2ad41086acc509691ed0ba7cf0b784aef`。平台审核因 `repository` 仓库地址不可访问而拒绝；建立并验证公开仓库后重新提交同版本。
+2026-09-01 已获得用户授权并首次提交 `@hmkit/form@0.1.0`，平台审核因 `repository` 仓库地址不可访问而拒绝。随后已建立公开仓库 `https://github.com/lxshwyan/harmony-form`，完成匿名访问验证，并重新提交同版本；修复后 HAR SHA-256 为 `c8c4b2e9f9c0234d588daa2edbfdc09855954223fadfdecb5e7adae93c86a6d9`，当前等待平台审核。

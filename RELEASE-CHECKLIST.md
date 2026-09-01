@@ -31,6 +31,6 @@
 - [x] 技术建议为 Go
 - [x] 已获得用户明确发布授权
 - [x] 已配置并确认 OHPM 发布身份与密钥
-- [ ] `@hmkit/form@0.1.0` 首次提交因 repository 不可访问被拒；公开仓库建立后重新提交
+- [x] `@hmkit/form@0.1.0` 首次提交因 repository 不可访问被拒；公开仓库建立并匿名验证后已重新提交审核
 
-最后验证：2026-09-01，`HMKIT_RUN_SIMULATOR=1 ./scripts/release-dry-run.sh`；首次提交 HAR SHA-256 为 `01ca5db02236488ef18dc4a9e3efbed2ad41086acc509691ed0ba7cf0b784aef`，平台因 repository 不可访问拒绝。
+最后验证：2026-09-01，`HMKIT_RUN_SIMULATOR=1 ./scripts/release-dry-run.sh`；修复 repository 后重新提交的 HAR SHA-256 为 `c8c4b2e9f9c0234d588daa2edbfdc09855954223fadfdecb5e7adae93c86a6d9`，当前等待平台审核。
