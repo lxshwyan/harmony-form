@@ -4,7 +4,7 @@
 
 - [x] 包名/版本为 `@hmkit/form@0.1.0`
 - [x] 最低 HarmonyOS 5.0 / API 12 与 ArkUI V2 已写明
-- [x] validator 依赖与三个消费者实际解析均为 `^1.0.0` / 1.0.0
+- [x] validator 依赖为 `^1.0.0`；冻结基线 1.0.0 与 Registry 最新兼容版 1.1.0 均通过
 - [x] 14 份 release `.d.ets` 已建立标准化公开签名冻结基线
 - [x] API、README、CHANGELOG、迁移与兼容矩阵一致
 

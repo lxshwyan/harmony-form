@@ -26,7 +26,12 @@ INSTALLED_FORM_DIR="$(find "${VALIDATOR_DIR}/oh_modules/.ohpm" -type d -path '*/
 INSTALLED_VALIDATOR_DIR="$(find "${VALIDATOR_DIR}/oh_modules/.ohpm" -type d -path '*/oh_modules/@hmkit/validator' -print -quit)"
 [[ -n "${INSTALLED_FORM_DIR}" ]] || { echo "Validator pilot did not install @hmkit/form" >&2; exit 1; }
 [[ -n "${INSTALLED_VALIDATOR_DIR}" ]] || { echo "Validator pilot did not install registry @hmkit/validator" >&2; exit 1; }
-grep -Eq '"version"[[:space:]]*:[[:space:]]*"1\.0\.0"' "${INSTALLED_VALIDATOR_DIR}/oh-package.json5"
+VALIDATOR_VERSION="$(sed -nE 's/.*"version"[[:space:]]*:[[:space:]]*"([^"]+)".*/\1/p' \
+  "${INSTALLED_VALIDATOR_DIR}/oh-package.json5" | head -1)"
+[[ "${VALIDATOR_VERSION}" =~ ^1\.[0-9]+\.[0-9]+([+-][0-9A-Za-z.-]+)?$ ]] || {
+  echo "Validator pilot resolved a validator version outside ^1.0.0." >&2
+  exit 1
+}
 
 HAR_INDEX_SUM="$(tar -xOzf "${HAR_FILE}" package/Index.d.ets | shasum -a 256 | awk '{print $1}')"
 INSTALLED_INDEX_SUM="$(shasum -a 256 "${INSTALLED_FORM_DIR}/Index.d.ets" | awk '{print $1}')"
@@ -46,4 +51,4 @@ if [[ "${HMKIT_RUN_SIMULATOR:-0}" == "1" ]]; then
   "${VALIDATOR_DIR}/scripts/test-form-pilot.sh"
 fi
 
-echo "Independent validator real-form pilot verified against the current HAR."
+echo "Independent validator real-form pilot verified against the current HAR and validator ${VALIDATOR_VERSION}."

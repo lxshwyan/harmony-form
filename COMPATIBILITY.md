@@ -6,7 +6,7 @@
 | --- | --- | --- | --- |
 | 仓内 Entry Demo | HarmonyOS 5.0.0(12) | DevEco module | release HAP 编译通过；Pura 90 运行通过 |
 | 独立 external-consumer | HarmonyOS 5.0.0(12) | release `form.har` file dependency | OHPM 安装、release HAP 编译、Pura 90 启动均通过 |
-| validator integration | `@hmkit/validator@^1.0.0` | OHPM Registry | 63 项 form 单测、HAR、三个消费者均通过 |
+| validator integration | `@hmkit/validator@^1.0.0` | OHPM Registry | 1.0.0 冻结基线与 1.1.0 最新兼容版本均通过；63 项 form 单测、HAR、三个消费者均通过 |
 | 独立 validator 真实试点 | HarmonyOS 5.0.0(12) / validator 1.0.x | 当前 release `form.har` | clean install、release HAP、失败/成功/重置 Pura 90 流程均通过 |
 | MateBook Pro 2in1 | HarmonyOS 6.1.0(23) | 0.1.1 候选 `form.har` | 设备类型识别、宽容器双列、窄容器单列、恢复宽容器、坐标点击与 Tab 焦点均通过 |
 

@@ -52,8 +52,10 @@ grep -Eq '"version"[[:space:]]*:[[:space:]]*"0\.1\.0"' \
   "${INSTALLED_FORM_DIR}/oh-package.json5" || fail "installed form version is not 0.1.0"
 grep -Fq '"repository":"https://github.com/lxshwyan/harmony-form.git"' \
   "${INSTALLED_FORM_DIR}/oh-package.json5" || fail "installed form repository metadata is incorrect"
-grep -Eq '"version"[[:space:]]*:[[:space:]]*"1\.0\.0"' \
-  "${INSTALLED_VALIDATOR_DIR}/oh-package.json5" || fail "validator 1.0.0 was not resolved"
+VALIDATOR_VERSION="$(sed -nE 's/.*"version"[[:space:]]*:[[:space:]]*"([^"]+)".*/\1/p' \
+  "${INSTALLED_VALIDATOR_DIR}/oh-package.json5" | head -1)"
+[[ "${VALIDATOR_VERSION}" =~ ^1\.[0-9]+\.[0-9]+([+-][0-9A-Za-z.-]+)?$ ]] \
+  || fail "resolved validator version is outside ^1.0.0"
 
 if find "${INSTALLED_FORM_DIR}" -type f -name '*.ets' ! -name '*.d.ets' -print -quit | grep -q .; then
   fail "registry package contains ArkTS implementation source"
@@ -135,4 +137,4 @@ if [[ "${HMKIT_RUN_SIMULATOR:-0}" == "1" ]]; then
     "${LAYOUT_FILE}" >/dev/null || fail "valid registry submit did not notify the host"
 fi
 
-echo "Registry @hmkit/form@0.1.0 consumer verified with @hmkit/validator@1.0.0."
+echo "Registry @hmkit/form@0.1.0 consumer verified with @hmkit/validator@${VALIDATOR_VERSION}."

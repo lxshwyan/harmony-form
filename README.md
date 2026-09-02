@@ -471,7 +471,7 @@ const brandTheme = new HmFormTheme({
 
 `verify.sh` 从 clean 状态执行测试、release HAR/HAP 构建和包内容审计。当前主机测试为 63 项；真正通过的数量以脚本输出为准。
 
-`release-dry-run.sh` 还会强制刷新并编译最小 API 12 HAR 消费者、全功能 Showcase 与 validator 真实注册表单，核对当前 HAR 声明/ABC 哈希和 validator 1.0.0 实际解析，运行 14 份声明冻结、凭据模式扫描和 `ohpm prepublish`；脚本不会调用 `ohpm publish`。连接模拟器时可运行 `HMKIT_RUN_SIMULATOR=1 ./scripts/release-dry-run.sh`，把三个应用的设备验收一并纳入门禁。
+`release-dry-run.sh` 还会强制刷新并编译最小 API 12 HAR 消费者、全功能 Showcase 与 validator 真实注册表单，核对当前 HAR 声明/ABC 哈希以及实际解析的 validator 是否满足 `^1.0.0`，运行 14 份声明冻结、凭据模式扫描和 `ohpm prepublish`；脚本不会调用 `ohpm publish`。连接模拟器时可运行 `HMKIT_RUN_SIMULATOR=1 ./scripts/release-dry-run.sh`，把三个应用的设备验收一并纳入门禁。
 
 连接 HDC 模拟器后，`test-simulator.sh` 会自动安装当前 HAP，并按稳定控件 ID 验证单列/双列响应式切换、Builder 插槽、深色主题、Checkbox、自定义 renderer、条件字段、异步校验、选项加载失败/重试/恢复，以及错误摘要的折叠展开、跨步骤定位与聚焦。
 

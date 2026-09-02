@@ -20,7 +20,7 @@
 | 项目 | 冻结候选 |
 |---|---|
 | HarmonyOS / ArkUI | HarmonyOS 5.0，最低 API 12，状态管理 V2 |
-| `@hmkit/validator` | `^1.0.0`；冻结时 registry 已验证 1.0.0 |
+| `@hmkit/validator` | `^1.0.0`；冻结时验证 1.0.0，0.1.1 发布候选验证 1.1.0 |
 | phone 设备 | Pura 90 模拟器完整回归 |
 | tablet/foldable | 组件宽度 600vp 断点、12 栅格/span；Showcase 双列预览回归 |
 | 2in1 | 0.1.1 增加 module 设备声明；沿用 600vp 组件断点，MateBook Pro 验证宽/窄容器与键鼠焦点 |

@@ -23,9 +23,10 @@ if [[ -z "${INSTALLED_FORM_DIR}" ]]; then
   echo "Installed @hmkit/form package was not found." >&2
   exit 1
 fi
-if [[ -z "${INSTALLED_VALIDATOR_DIR}" ]] || \
-  ! grep -Eq '"version"[[:space:]]*:[[:space:]]*"1\.0\.0"' "${INSTALLED_VALIDATOR_DIR}/oh-package.json5"; then
-  echo "Independent consumer did not resolve @hmkit/validator 1.0.0." >&2
+VALIDATOR_VERSION="$(sed -nE 's/.*"version"[[:space:]]*:[[:space:]]*"([^"]+)".*/\1/p' \
+  "${INSTALLED_VALIDATOR_DIR}/oh-package.json5" 2>/dev/null | head -1)"
+if [[ -z "${INSTALLED_VALIDATOR_DIR}" || ! "${VALIDATOR_VERSION}" =~ ^1\.[0-9]+\.[0-9]+([+-][0-9A-Za-z.-]+)?$ ]]; then
+  echo "Independent consumer resolved a validator version outside ^1.0.0." >&2
   exit 1
 fi
 
@@ -44,4 +45,4 @@ bash "${HVIGORW}" assembleHap --mode module \
   -p product=default -p module=entry@default -p buildMode=release --no-daemon
 
 test -f "${CONSUMER_DIR}/entry/build/default/outputs/default/entry-default-unsigned.hap"
-echo "Independent API 12 consumer verified against the current HAR and validator 1.0.0."
+echo "Independent API 12 consumer verified against the current HAR and validator ${VALIDATOR_VERSION}."
