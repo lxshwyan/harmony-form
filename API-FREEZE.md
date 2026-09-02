@@ -23,6 +23,7 @@
 | `@hmkit/validator` | `^1.0.0`；冻结时 registry 已验证 1.0.0 |
 | phone 设备 | Pura 90 模拟器完整回归 |
 | tablet/foldable | 组件宽度 600vp 断点、12 栅格/span；Showcase 双列预览回归 |
+| 2in1 | 0.1.1 增加 module 设备声明；沿用 600vp 组件断点，MateBook Pro 验证宽/窄容器与键鼠焦点 |
 | 消费形态 | 仓内 Entry、独立最小 HAR 消费者、独立 Showcase、validator 真实注册表单 |
 
 ## 真实反馈决策

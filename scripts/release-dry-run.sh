@@ -37,4 +37,8 @@ if [[ "${HMKIT_RUN_SIMULATOR:-0}" == "1" ]]; then
   "${SCRIPT_DIR}/test-showcase-simulator.sh"
 fi
 
+if [[ "${HMKIT_RUN_2IN1:-0}" == "1" ]]; then
+  "${SCRIPT_DIR}/test-2in1-simulator.sh"
+fi
+
 echo "Release dry-run passed. No package was published."

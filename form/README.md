@@ -31,7 +31,7 @@ HmFormView({
 })
 ```
 
-内置 text、number、textarea、select、radio、checkbox、switch、date；checkbox 使用去重 `string[]` model。Text/Number 可通过 `FormTextInputType` + `uiOptions.inputType` 声明手机号、邮箱、密码等键盘类型。Select/Radio/Checkbox 支持 `optionsLoader` 异步选项、loading/error/retry、缓存和竞态保护。支持 `FormFieldType.custom()` + `HmFormRendererRegistry` 自定义字段、prefix/suffix/label/help/error/submit Builder 插槽、12 列 phone/tablet 响应式 span、受控回填、异步校验、条件显示/禁用、一级依赖、成功/失败提交事件、首错聚焦、Builder footer、light/dark 主题、动态字体和无障碍语义。字段用 `FormFieldUIOptions.slots` + `FormFieldSlot` 显式启用覆盖，并用 `span` 声明宽容器跨度；`HmFormLayout` 默认按组件宽度在 600vp 切换。submit Builder 通过 `HmFormSubmitSlotContext.submit()` 进入默认提交生命周期。自定义 renderer 必须是全局 `@Builder` 并通过 `wrapBuilder()` 注册。
+内置 text、number、textarea、select、radio、checkbox、switch、date；checkbox 使用去重 `string[]` model。Text/Number 可通过 `FormTextInputType` + `uiOptions.inputType` 声明手机号、邮箱、密码等键盘类型。Select/Radio/Checkbox 支持 `optionsLoader` 异步选项、loading/error/retry、缓存和竞态保护。支持 `FormFieldType.custom()` + `HmFormRendererRegistry` 自定义字段、prefix/suffix/label/help/error/submit Builder 插槽、12 列 phone/tablet/2in1 响应式 span、受控回填、异步校验、条件显示/禁用、一级依赖、成功/失败提交事件、首错聚焦、Builder footer、light/dark 主题、动态字体和无障碍语义。字段用 `FormFieldUIOptions.slots` + `FormFieldSlot` 显式启用覆盖，并用 `span` 声明宽容器跨度；`HmFormLayout` 默认按组件宽度在 600vp 切换。submit Builder 通过 `HmFormSubmitSlotContext.submit()` 进入默认提交生命周期。自定义 renderer 必须是全局 `@Builder` 并通过 `wrapBuilder()` 注册。
 
 `inferFormFields(schemaShape, overrides?)` 可从 validator schema 推导默认字段和初始 defaultValue；复杂或歧义类型必须显式覆盖 type。
 

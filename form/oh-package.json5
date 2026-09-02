@@ -1,6 +1,6 @@
 {
   "name": "@hmkit/form",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "鸿蒙 ArkUI V2 声明式表单组件库，与 @hmkit/validator 深度集成",
   "main": "Index.ets",
   "author": {

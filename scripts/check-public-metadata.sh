@@ -13,6 +13,18 @@ grep -Eq '"version"[[:space:]]*:[[:space:]]*"[0-9]+\.[0-9]+\.[0-9]+([+-][0-9A-Za
 grep -Fq '"homepage": "https://github.com/lxshwyan/harmony-form"' "${PACKAGE_JSON}"
 grep -Fq '"repository": "https://github.com/lxshwyan/harmony-form.git"' "${PACKAGE_JSON}"
 grep -Eq '"@hmkit/validator"[[:space:]]*:[[:space:]]*"\^1\.0\.0"' "${PACKAGE_JSON}"
+grep -Eq '"version"[[:space:]]*:[[:space:]]*"0\.1\.1"' "${PACKAGE_JSON}"
+
+for module_profile in \
+  form/src/main/module.json5 \
+  entry/src/main/module.json5 \
+  showcase-app/entry/src/main/module.json5 \
+  external-consumer/entry/src/main/module.json5; do
+  grep -Eq '"deviceTypes"[[:space:]]*:[[:space:]]*\[[^]]*"phone"[^]]*"tablet"[^]]*"2in1"' "${module_profile}" || {
+    echo "2in1 device support is missing from ${module_profile}" >&2
+    exit 1
+  }
+done
 
 grep -Fq 'ohpm install @hmkit/form' README.md
 grep -Fq 'ohpm install @hmkit/form' form/README.md

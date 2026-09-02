@@ -19,9 +19,10 @@ Requirements are DevEco Studio with HarmonyOS SDK API 12 or later and the bundle
 ./scripts/scan-har.sh
 ./scripts/check-api-freeze.sh
 ./scripts/verify-registry-consumer.sh
+./scripts/test-2in1-simulator.sh
 ```
 
-For UI changes, run the relevant Demo and Showcase flows on an emulator or device. `HMKIT_RUN_SIMULATOR=1 ./scripts/release-dry-run.sh` executes the complete release gate when a Pura 90 emulator is connected.
+For UI changes, run the relevant Demo and Showcase flows on an emulator or device. `HMKIT_RUN_SIMULATOR=1 ./scripts/release-dry-run.sh` executes the phone release gate when a Pura 90 emulator is connected. Start the MateBook Pro emulator and use `HMKIT_RUN_2IN1=1 ./scripts/release-dry-run.sh` for the 2in1 gate.
 
 ## Compatibility rules
 

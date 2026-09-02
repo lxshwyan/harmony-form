@@ -29,8 +29,13 @@ click_id() {
 }
 scroll_until_id() {
   for _attempt in 1 2 3 4 5 6 7 8; do
+    local bounds
     dump_layout
-    [[ -n "$(bounds_for_id "$1")" ]] && return
+    bounds="$(bounds_for_id "$1")"
+    if [[ "${bounds}" =~ \[([0-9]+),([0-9]+)\]\[([0-9]+),([0-9]+)\] ]] &&
+      (( BASH_REMATCH[2] >= 120 && BASH_REMATCH[4] <= 2500 )); then
+      return
+    fi
     if [[ "$2" == "up" ]]; then
       hdc shell uitest uiInput swipe 660 450 660 1600 700 >/dev/null
     else

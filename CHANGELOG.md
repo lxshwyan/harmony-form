@@ -2,6 +2,12 @@
 
 All notable changes to `@hmkit/form` are documented here.
 
+## 0.1.1 - 2026-09-02
+
+- 正式增加 HarmonyOS 2in1 设备声明，与既有 phone/tablet 支持保持一致。
+- 增加 MateBook Pro 宽/窄容器响应式、坐标点击和键盘 Tab 焦点自动化验收。
+- 2in1 继续复用基于组件宽度的 600vp/12 列栅格，不新增或改变 0.1.x 公开 API。
+
 ## 0.1.0 - 2026-08-31
 
 - 首个 ArkUI V2 表单组件版本，最低 HarmonyOS 5.0 / API 12。

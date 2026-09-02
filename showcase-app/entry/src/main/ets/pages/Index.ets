@@ -132,6 +132,7 @@ struct Index {
   @Local contacts: Object[] = ['张三 / 13800000000'];
   @Local status: string = '等待填写';
   @Local dark: boolean = false;
+  @Local compactPreview: boolean = false;
   private controller: FormController = new FormController(this.fields, this.values, { 'debounceMs': 0 });
   private contactsController: FormArrayController = new FormArrayController(this.contacts, { 'minItems': 1, 'maxItems': 4 });
   private structure: FormStructureController = new FormStructureController([
@@ -181,6 +182,18 @@ struct Index {
 
       Scroll() {
         Column({ space: 18 }) {
+          Row({ space: 8 }) {
+            Text(this.compactPreview ? '窄窗单列预览' : '当前窗口自适应')
+              .id('showcase_2in1_layout_status')
+              .fontSize('12fp')
+              .fontColor(this.theme().secondaryTextColor)
+              .layoutWeight(1)
+            Button(this.compactPreview ? '展开宽窗' : '模拟窄窗')
+              .id('showcase_2in1_compact')
+              .onClick((): void => { this.compactPreview = !this.compactPreview; })
+          }
+          .width('100%')
+
           HmFormView({
             fields: this.fields,
             values: this.values!!,
@@ -228,7 +241,11 @@ struct Index {
           Text(this.status).id('showcase_status').fontSize('13fp').fontColor(this.theme().secondaryTextColor)
           Text(`当前模型：${JSON.stringify(this.values)}`).id('showcase_values').fontSize('11fp')
             .fontColor(this.theme().secondaryTextColor)
-        }.width('100%').padding({ left: 20, right: 20, bottom: 32 })
+        }
+        .width('100%')
+        .constraintSize({ maxWidth: this.compactPreview ? 520 : 1200 })
+        .alignSelf(ItemAlign.Center)
+        .padding({ left: 20, right: 20, bottom: 32 })
       }.layoutWeight(1).scrollBar(BarState.Auto)
     }.width('100%').height('100%').backgroundColor(this.dark ? '#111827' : '#F5F7FB')
   }

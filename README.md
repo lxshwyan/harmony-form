@@ -2,7 +2,7 @@
 
 面向 HarmonyOS ArkUI V2 的声明式表单组件库，与 `@hmkit/validator` 共用同一套 Schema 和校验状态机。
 
-当前稳定版本为 [`@hmkit/form@0.1.0`](https://ohpm.openharmony.cn/#/cn/detail/@hmkit/form)，最低 HarmonyOS 5.0 / API 12。
+当前 Registry 稳定版本为 [`@hmkit/form@0.1.0`](https://ohpm.openharmony.cn/#/cn/detail/@hmkit/form)；`main` 正在准备兼容补丁版 0.1.1，正式增加 2in1 支持。最低 HarmonyOS 5.0 / API 12。
 
 ## 安装
 
@@ -43,7 +43,7 @@ ohpm install @hmkit/form
 
 [`showcase-app`](./showcase-app) 是独立 API 12 应用，只消费当前 release HAR。它把内置字段、Schema 推导、嵌套值、条件依赖、异步成功/失败重试、响应式布局、主题、全部字段插槽、自定义 renderer、分组/折叠/步骤、错误摘要、keepAlive、FormArray、受控回填/reset/submit 集中在一个企业入驻流程中。
 
-手机保持单列；tablet/foldable 在组件宽度达到 600vp 后按字段 `span` 自动进入双列/跨列布局。折叠态和非当前步骤默认释放子树，仅对确有临时 UI 状态或创建成本的字段启用 `keepAlive`。完整能力清单与运行方式见 [`showcase-app/README.md`](./showcase-app/README.md)。
+手机窄窗保持单列；tablet、foldable 与 2in1 在组件宽度达到 600vp 后按字段 `span` 自动进入双列/跨列布局，2in1 窗口缩窄后会原地回到单列。折叠态和非当前步骤默认释放子树，仅对确有临时 UI 状态或创建成本的字段启用 `keepAlive`。完整能力清单与运行方式见 [`showcase-app/README.md`](./showcase-app/README.md)。
 
 ## 最小示例
 
@@ -466,6 +466,7 @@ const brandTheme = new HmFormTheme({
 ./scripts/release-dry-run.sh
 ./scripts/test-simulator.sh
 ./scripts/test-showcase-simulator.sh
+./scripts/test-2in1-simulator.sh
 ```
 
 `verify.sh` 从 clean 状态执行测试、release HAR/HAP 构建和包内容审计。当前主机测试为 63 项；真正通过的数量以脚本输出为准。
@@ -473,6 +474,8 @@ const brandTheme = new HmFormTheme({
 `release-dry-run.sh` 还会强制刷新并编译最小 API 12 HAR 消费者、全功能 Showcase 与 validator 真实注册表单，核对当前 HAR 声明/ABC 哈希和 validator 1.0.0 实际解析，运行 14 份声明冻结、凭据模式扫描和 `ohpm prepublish`；脚本不会调用 `ohpm publish`。连接模拟器时可运行 `HMKIT_RUN_SIMULATOR=1 ./scripts/release-dry-run.sh`，把三个应用的设备验收一并纳入门禁。
 
 连接 HDC 模拟器后，`test-simulator.sh` 会自动安装当前 HAP，并按稳定控件 ID 验证单列/双列响应式切换、Builder 插槽、深色主题、Checkbox、自定义 renderer、条件字段、异步校验、选项加载失败/重试/恢复，以及错误摘要的折叠展开、跨步骤定位与聚焦。
+
+启动 MateBook Pro 2in1 模拟器后，`test-2in1-simulator.sh` 会安装 Showcase，验证 2in1 模块声明、宽容器双列、窄容器预览的单列重排、坐标点击和键盘 Tab 焦点链路。
 
 ## 当前边界
 

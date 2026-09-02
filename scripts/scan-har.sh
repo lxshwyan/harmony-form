@@ -32,9 +32,10 @@ THEME_DECLARATION="$(tar -xOzf "${HAR_FILE}" package/src/main/ets/theme/HmFormTh
 CONTENTS="$(tar -tzf "${HAR_FILE}")"
 
 grep -Eq '"name"[[:space:]]*:[[:space:]]*"@hmkit/form"' <<<"${PACKAGE_JSON}"
-grep -Eq '"version"[[:space:]]*:[[:space:]]*"0\.1\.0"' <<<"${PACKAGE_JSON}"
+grep -Eq '"version"[[:space:]]*:[[:space:]]*"0\.1\.1"' <<<"${PACKAGE_JSON}"
 grep -Eq '"@hmkit/validator"[[:space:]]*:[[:space:]]*"\^1\.0\.0"' <<<"${PACKAGE_JSON}"
 grep -Eq '"debug"[[:space:]]*:[[:space:]]*false' <<<"${MODULE_JSON}"
+grep -Fq '"2in1"' <<<"${MODULE_JSON}"
 grep -Fq 'export { FormController, FormControllerOptions }' <<<"${ENTRY_DECLARATION}"
 grep -Fq 'FormArrayController, FormArrayControllerOptions, FormArrayEntry, FormArrayIdentity, HmFormArrayItemContext' <<<"${ENTRY_DECLARATION}"
 grep -Fq 'export { HmFormView }' <<<"${ENTRY_DECLARATION}"
