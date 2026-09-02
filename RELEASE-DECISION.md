@@ -2,9 +2,9 @@
 
 ## 决策
 
-当前建议：**技术 Go，发布动作待用户单独授权**。
+最终结果：**Go，`@hmkit/form@0.1.0` 已公开发布**。
 
-这表示代码、包、API 冻结、独立消费和设备证据已达到 0.1.0 候选标准；不表示已发布，也不表示已经获得生产流量或社区采用证明。最终 full dry-run 的结果记录在 `RELEASE-CHECKLIST.md`。
+代码、包、API 冻结、独立消费和设备证据已达到 0.1.0 标准，OHPM registry 已可查询并安装。发布成功不等于已经获得生产流量或社区采用证明；后续结论必须基于真实接入反馈。最终 full dry-run 的结果记录在 `RELEASE-CHECKLIST.md`。
 
 ## 发布收益
 
@@ -19,8 +19,8 @@
 |---|---|---|
 | 只有一个真实独立项目试点，没有线上流量或社区反馈 | 中 | 0.1.0 发布后优先收集 2–3 个真实接入；不据此宣称市场采用 |
 | 0.1.0 公开面较宽，后续维护成本高 | 中 | 14 份声明精确冻结；0.1.x 禁止破坏性变化，变更须过兼容评审 |
-| form/validator 生成声明含 `@ts-nocheck`，ArkTS 消费编译产生 strict warning | 中 | HAR/HAP 均成功；作为发布后优先治理项，不把 warning 当错误隐藏 |
-| Demo 使用已弃用 router `pushUrl/back` | 低 | 只影响 Demo 导航，不进入 form HAR 公共 API；后续迁移 Navigation |
+| form/validator 的工具链生成声明含 `@keepTs` / `@ts-nocheck`，ArkTS 消费编译产生 strict warning | 中 | 源码未手写该指令，HAR/HAP 均成功；持续跟踪 SDK 生成器修复，不篡改产物隐藏 warning |
+| Demo 导航架构 | 低 | form Demo 是单页场景切换且不使用 `@ohos.router`；独立 validator 试点 Demo 仍有旧 router warning，应在 validator 仓单独迁移；form 未来多页统一使用 `Navigation` + `NavPathStack` |
 | Entry 模块偶发通用 SemVer/module info warning | 低 | 三个消费者实际依赖解析和产物均已显式断言，不影响 HAR 发布元数据 |
 | 当前仅验证 API 12 / HarmonyOS 5.0 基线 | 低 | 文档不承诺未验证的 API 13+；后续补 SDK/设备矩阵 |
 
@@ -47,4 +47,4 @@ source scripts/env.sh
   --disallow_nested_package --ensure_dependency_include
 ```
 
-2026-09-01 已获得用户授权并首次提交 `@hmkit/form@0.1.0`，平台审核因 `repository` 仓库地址不可访问而拒绝。随后已建立公开仓库 `https://github.com/lxshwyan/harmony-form`，完成匿名访问验证，并重新提交同版本；修复后 HAR SHA-256 为 `c8c4b2e9f9c0234d588daa2edbfdc09855954223fadfdecb5e7adae93c86a6d9`，当前等待平台审核。
+2026-09-01 首次提交因 `repository` 仓库地址不可访问被拒；建立公开仓库并完成匿名访问验证后重新提交。2026-09-02 OHPM registry 已公开 `@hmkit/form@0.1.0`，`latest` 指向 0.1.0；发布 HAR SHA-256 为 `c8c4b2e9f9c0234d588daa2edbfdc09855954223fadfdecb5e7adae93c86a6d9`。

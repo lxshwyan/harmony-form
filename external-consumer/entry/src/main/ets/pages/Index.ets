@@ -135,6 +135,7 @@ struct Index {
         }
       })
       Text(this.submitStatus)
+        .id('consumer_submit_status')
       HmFormArrayView({
         values: this.arrayValues!!,
         controller: this.arrayController,

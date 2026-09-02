@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: API documentation
+    url: https://github.com/lxshwyan/harmony-form/blob/main/API.md
+    about: Check the complete public API and behavior contract before opening an issue.
+  - name: Validator issues
+    url: https://github.com/lxshwyan/harmony-validator/issues
+    about: Report schema or validation-rule problems in the validator repository.

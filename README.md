@@ -2,7 +2,19 @@
 
 面向 HarmonyOS ArkUI V2 的声明式表单组件库，与 `@hmkit/validator` 共用同一套 Schema 和校验状态机。
 
-当前仓库处于 0.1.0 首发审核阶段。已经可用的能力包括：
+当前稳定版本为 [`@hmkit/form@0.1.0`](https://ohpm.openharmony.cn/#/cn/detail/@hmkit/form)，最低 HarmonyOS 5.0 / API 12。
+
+## 安装
+
+```bash
+ohpm install @hmkit/form
+```
+
+`@hmkit/validator@^1.0.0` 会作为运行依赖自动安装。建议应用锁定生成的 `oh-package-lock.json5`，保证团队与 CI 使用一致版本。
+
+## 能力
+
+已经可用的能力包括：
 
 - `FormController`：values、errors、change、blur、submit、reset、dispose。
 - `HmFormView`：text/number/textarea/select/radio/checkbox/switch/date 动态字段、稳定字段 key、首错聚焦、成功/失败提交事件与可替换提交区。

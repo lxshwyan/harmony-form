@@ -1,0 +1,40 @@
+name: Feature request
+description: Propose a use-case-driven, compatible improvement.
+title: "[Feature]: "
+labels:
+  - enhancement
+body:
+  - type: textarea
+    id: use-case
+    attributes:
+      label: Real project use case
+      description: Describe the form, field or workflow that cannot be expressed cleanly today.
+    validations:
+      required: true
+  - type: textarea
+    id: current-solution
+    attributes:
+      label: Current workaround
+      description: Show the code or architecture you use now and why it is insufficient.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed API or behavior
+      description: Prefer a small compatible addition. Public API breaking changes are deferred to at least 0.2.0.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checks
+      options:
+        - label: I searched existing issues and the API documentation.
+          required: true
+        - label: This request is based on a concrete project need.
+          required: true

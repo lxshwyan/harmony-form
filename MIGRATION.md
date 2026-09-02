@@ -26,4 +26,4 @@ new FormFieldSpec('phone', FormFieldType.TEXT, '手机号', phoneSchema, '请输
 - 自定义提交 UI 必须调用 `HmFormSubmitSlotContext.submit()`，不要绕过默认的异步隔离与生命周期检查。
 - 动态数组使用 `FormArrayController`，不要把数字下标塞进点路径字段名。
 
-0.1.0 尚未发布，因此没有已发布用户需要执行破坏性迁移；本指南用于当前试点和发布候选复核。
+0.1.0 是首个公开版本，因此没有更早的 registry 版本需要迁移。本指南用于手写表单、冻结前试点或本地 HAR 用户切换到公开包；后续 0.1.x 只接受兼容新增与修复。

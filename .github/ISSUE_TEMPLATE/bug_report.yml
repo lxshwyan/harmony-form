@@ -1,0 +1,61 @@
+name: Bug report
+description: Report a reproducible @hmkit/form problem.
+title: "[Bug]: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: Thanks for helping improve @hmkit/form. Please remove private business data from reproductions and logs.
+  - type: input
+    id: form-version
+    attributes:
+      label: "@hmkit/form version"
+      placeholder: 0.1.0
+    validations:
+      required: true
+  - type: input
+    id: validator-version
+    attributes:
+      label: "@hmkit/validator version"
+      placeholder: 1.0.0
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: HarmonyOS API level, DevEco Studio version, device/emulator, screen class, theme and font scale when relevant.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Minimal reproduction
+      description: Link a small public repository or provide the smallest fields/controller/view snippet that reproduces the issue.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior and logs
+      description: Include the full error text, but remove credentials and private user data.
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checks
+      options:
+        - label: I reproduced this with the latest 0.1.x version.
+          required: true
+        - label: I searched existing issues for the same problem.
+          required: true
+        - label: The report contains no credentials or private business data.
+          required: true

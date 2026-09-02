@@ -1,0 +1,38 @@
+name: Harmony verify
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: harmony-verify-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    # Public pull requests deliberately never execute on the owner's workstation.
+    runs-on: [self-hosted, macOS]
+    timeout-minutes: 20
+    env:
+      DEVECO_ROOT: /Applications/DevEco-Studio.app/Contents
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install registry dependencies
+        run: |
+          "${DEVECO_ROOT}/tools/ohpm/bin/ohpm" install
+
+      - name: Test, build release artifacts, and scan HAR
+        run: ./scripts/verify.sh
+
+      - name: Check frozen public declarations
+        run: ./scripts/check-api-freeze.sh
+
+      - name: Verify the published registry consumer
+        run: ./scripts/verify-registry-consumer.sh
